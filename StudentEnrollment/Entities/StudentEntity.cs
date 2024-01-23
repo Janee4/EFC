@@ -1,8 +1,12 @@
-﻿namespace StudentEnrollment.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace StudentEnrollment.Entities
 {
     public class StudentEntity
     {
+
         //Primärnyckel (Primary Key) som kommer behövas då varje student kommer att ha en unik identifikation
+        [Key]
         public int StudentId { get; set; }
 
         //övriga egenskaper
