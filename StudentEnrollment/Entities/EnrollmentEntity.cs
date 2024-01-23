@@ -1,9 +1,12 @@
 ﻿
+using System.ComponentModel.DataAnnotations;
+
 namespace StudentEnrollment.Entities
 {
     internal class EnrollmentEntity
     {
         //Primär nyckel för registreringen, en unik identifierare för varje registrering
+        [Key]
         public int EnrollmentId { get; set; }
 
         //Främmande nycklar (Foreign Keys) Dessa pekar på student- och course entiteterna och representerar vilken student som är registrerad för vilken kurd

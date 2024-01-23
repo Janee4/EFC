@@ -1,9 +1,12 @@
-﻿namespace StudentEnrollment.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace StudentEnrollment.Entities
 {
     internal class TeacherEntity
     {
 
         //Primär nyckel
+        [Key]
         public int TeacherId { get; set; }
 
         //Övriga egenskaper

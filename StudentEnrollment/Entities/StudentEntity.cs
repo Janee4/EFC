@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace StudentEnrollment.Entities
 {
@@ -9,12 +10,18 @@ namespace StudentEnrollment.Entities
         [Key]
         public int StudentId { get; set; }
 
+        [Required]
         //övriga egenskaper
+        [Column(TypeName = "nvarchar(50")]
         public string FirstName { get; set; }
+        [Column(TypeName = "nvarchar(50")]
         public string LastName { get; set; }
-        public DateTime BirthDate { get; set; }
-        public int Grade { get; set; }
 
+        [Column(TypeName = "varchar(8")]
+        public DateTime BirthDate { get; set; }
+
+        [Column (TypeName = "varchar(2")]
+        public int Grade { get; set; }
 
 
     }
