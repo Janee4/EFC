@@ -23,6 +23,7 @@ namespace StudentEnrollment.Entities
         [Column (TypeName = "varchar(2")]
         public int Grade { get; set; }
 
+      public virtual ICollection<EnrollmentEntity> Enrollments { get; set; } = new HashSet<EnrollmentEntity>();
 
     }
 }

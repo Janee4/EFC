@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace StudentEnrollment.Entities
 {
-    internal class EnrollmentEntity
+    public class EnrollmentEntity
     {
         //Primär nyckel för registreringen, en unik identifierare för varje registrering
         [Key]
@@ -18,6 +18,8 @@ namespace StudentEnrollment.Entities
         [ForeignKey(nameof(CourseEntity))]
         public int CourseId { get; set; }
 
+        public virtual StudentEntity Student { get; set; }
+        public virtual CourseEntity Course { get; set; }
         //övriga egenskaper
         //Datum då studenten registrerades för kursen
         [Column(TypeName = "varchar(¨8")]

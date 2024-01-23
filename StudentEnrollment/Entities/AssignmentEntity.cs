@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace StudentEnrollment.Entities
 {
-    internal class AssignmentEntity
+    public class AssignmentEntity
     {
         //Primär nyckel, en unik identifierare för varje uppgift
         [Key]

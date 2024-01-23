@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace StudentEnrollment.Entities
 {
-    internal class TeacherEntity
+    public class TeacherEntity
     {
 
         //Primär nyckel

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace StudentEnrollment.Entities
 {
-    internal class CourseEntity
+    public class CourseEntity
     {
 
         //Primärnyckel
