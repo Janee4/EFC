@@ -11,7 +11,11 @@ namespace StudentEnrollment.Entities
         public int EnrollmentId { get; set; }
 
         //Främmande nycklar (Foreign Keys) Dessa pekar på student- och course entiteterna och representerar vilken student som är registrerad för vilken kurd
+        [Required]
+        [ForeignKey(nameof(StudentEntity))]
         public int StudentId { get; set; }
+        [Required]
+        [ForeignKey(nameof(CourseEntity))]
         public int CourseId { get; set; }
 
         //övriga egenskaper
