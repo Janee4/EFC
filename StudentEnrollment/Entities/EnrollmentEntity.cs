@@ -1,5 +1,6 @@
 ﻿
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace StudentEnrollment.Entities
 {
@@ -15,6 +16,7 @@ namespace StudentEnrollment.Entities
 
         //övriga egenskaper
         //Datum då studenten registrerades för kursen
+        [Column(TypeName = "varchar(¨8")]
         public DateTime EnrollmentDate { get; set; }
 
 
