@@ -22,7 +22,7 @@ namespace StudentEnrollment.Entities
         public virtual CourseEntity Course { get; set; }
         //övriga egenskaper
         //Datum då studenten registrerades för kursen
-        [Column(TypeName = "varchar(¨8")]
+        [Column(TypeName = "varchar(8)")]
         public DateTime EnrollmentDate { get; set; }
 
 
