@@ -26,6 +26,12 @@ namespace StudentEnrollment.Repositories
       
         }
 
+        public IEnumerable<TEntity> GetAll() 
+        {
+            return _context.Set<TEntity>().ToList();
+        
+        }
+
         public TEntity Get(Expression<Func<TEntity, bool>> expression) 
         { 
             var entity = _context.Set<TEntity>().FirstOrDefault(expression);
@@ -41,6 +47,14 @@ namespace StudentEnrollment.Repositories
 
             return entityToUpdate!;
         
+        }
+
+        public void Delete(Expression<Func<TEntity, bool>> expression)
+        {
+            var entity = _context.Set<TEntity>().FirstOrDefault(expression);
+            _context.Remove(entity!);
+            _context.SaveChanges();
+
         }
     }
 }
