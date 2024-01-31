@@ -26,7 +26,6 @@ namespace StudentEnrollment.Entities
         //Datum då uppgiften ska vara klar
         [Column(TypeName = "varchar (8)")]
         public DateTime DueDate { get; set; }
-
-
+        public string AssignmentName { get; internal set; }
     }
 }
