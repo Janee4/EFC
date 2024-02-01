@@ -27,36 +27,36 @@ namespace StudentEnrollment.Services
             return teacherEntity;
         }
 
-        public TeacherEntity GetAssignmentByAssignmentName(string teacherName)
+        public TeacherEntity GetTeacher(string firstName, string lastName, string subject)
         {
-            var assignmentEntity = _teacherRepository.Get(x => x.TeacherName == teacherName);
-            return assignmentEntity;
+            var teacherEntity = _teacherRepository.Get(x => x.FirstName == firstName && x.LastName == lastName && x.Subject == subject);
+            return teacherEntity;
 
         }
 
-        public TeacherEntity GetAssignmentById(int id)
+        public TeacherEntity GetTeacherById(int id)
         {
             var teacherEntity = _teacherRepository.Get(x => x.TeacherId == id);
             return teacherEntity;
         }
 
-        public IEnumerable<TeacherEntity> GetAssignments()
+        public IEnumerable<TeacherEntity> GetTeachers()
         {
-            var assignments = _teacherRepository.GetAll();
-            return assignments;
+            var teachers = _teacherRepository.GetAll();
+            return teachers;
 
         }
 
-        public TeacherEntity UpdateAssignment(TeacherEntity assignmentEntity)
+        public TeacherEntity UpdateTeacher(TeacherEntity teacherEntity)
         {
-            var updatedAssignmentEntity = _teacherRepository.Update(x => x.TeacherId == TeacherEntity.TeacherId, TeacherEntity);
-            return updatedAssignmentEntity;
+            var updatedTeacherEntity = _teacherRepository.Update(x => x.TeacherId == teacherEntity.TeacherId, teacherEntity);
+            return updatedTeacherEntity;
 
         }
 
-        public void DeleteAssignment(int AssignmentId)
+        public void DeleteTeacher(int TeacherId)
         {
-            _teacherRepository.Delete(x => x.AssignmentId == AssignmentId);
+            _teacherRepository.Delete(x => x.TeacherId == TeacherId);
 
         }
 
