@@ -19,18 +19,18 @@ namespace StudentCourse.Services
         }
 
 
-        public CourseEntity CreateCourse(string CourseName)
+        public CourseEntity CreateCourse(string courseName)
         {
-            var CourseEntity = _courseRepository.Get(x => x.CourseName == CourseName);
+            var CourseEntity = _courseRepository.Get(x => x.CourseName == courseName);
 
-            CourseEntity ??= _courseRepository.Create(new CourseEntity { CourseName = CourseName });
+            CourseEntity ??= _courseRepository.Create(new CourseEntity { CourseName = courseName });
 
             return CourseEntity;
         }
 
-        public CourseEntity GetCourse(string CourseName)
+        public CourseEntity GetCourse(string courseName)
         {
-            var CourseEntity = _courseRepository.Get(x => x.CourseName == CourseName);
+            var CourseEntity = _courseRepository.Get(x => x.CourseName == courseName);
             return CourseEntity;
 
         }
