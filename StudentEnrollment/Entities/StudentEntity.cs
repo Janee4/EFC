@@ -20,10 +20,10 @@ namespace StudentEnrollment.Entities
         [Column(TypeName = "varchar(8)")]
         public DateTime BirthDate { get; set; }
 
-        [Column (TypeName = "varchar(2)")]
+        [Column(TypeName = "varchar(2)")]
         public int Grade { get; set; }
 
-      public virtual ICollection<EnrollmentEntity> Enrollments { get; set; } = new HashSet<EnrollmentEntity>();
+        public virtual ICollection<EnrollmentEntity> Enrollments { get; set; } = new HashSet<EnrollmentEntity>();
 
     }
 }

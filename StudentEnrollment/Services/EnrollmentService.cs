@@ -1,4 +1,5 @@
-﻿using StudentEnrollment.Entities;
+﻿using StudentCourse.Services;
+using StudentEnrollment.Entities;
 using StudentEnrollment.Repositories;
 using System;
 using System.Collections.Generic;
@@ -11,21 +12,44 @@ namespace StudentEnrollment.Services
     internal class EnrollmentService
     {
         private readonly EnrollmentRepository _enrollmentRepository;
+        private readonly StudentService _studentService;
+        private readonly CourseService _courseService;
 
-        public EnrollmentService(EnrollmentRepository EnrollmentRepository)
+        public EnrollmentService(EnrollmentRepository enrollmentRepository, CourseService courseService, StudentService studentService)
         {
-            _enrollmentRepository = EnrollmentRepository;
+            _enrollmentRepository = enrollmentRepository;
+            _courseService = courseService;
+            _studentService = studentService;
         }
 
 
-        public EnrollmentEntity CreateEnrollment(DateTime EnrollmentDate)
+        public EnrollmentEntity CreateEnrollment(DateTime enrollmentDate, int studentId, int courseId )
         {
-            var enrollmentEntity = _enrollmentRepository.Get(x => x.EnrollmentDate == EnrollmentDate);
+            var courseIdString = courseId.ToString();
+            var studentIdString = studentId.ToString();
 
-            enrollmentEntity ??= _enrollmentRepository.Create(new EnrollmentEntity { EnrollmentDate = EnrollmentDate });
+            // Hämta StudentEntity från StudentService
+            var studentEntity = _studentService.GetStudentById(studentId);
+
+            // Hämta CourseEntity från CourseService
+            var courseEntity = _courseService.GetCourseById(courseId);
+
+
+            var enrollmentEntity = _enrollmentRepository.Get(x => x.EnrollmentDate == enrollmentDate);
+
+            enrollmentEntity = new EnrollmentEntity
+            {
+                EnrollmentDate = enrollmentDate,
+                StudentId = studentEntity.StudentId,
+                CourseId = courseEntity.CourseId,
+            };
+            
+            enrollmentEntity = _enrollmentRepository.Create(enrollmentEntity);
 
             return enrollmentEntity;
         }
+
+
 
         public EnrollmentEntity GetEnrollment(DateTime EnrollmentDate)
         {

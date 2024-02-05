@@ -11,53 +11,53 @@ namespace StudentEnrollment.Services
     internal class StudentService
     {
 
-        private readonly StudentRepository _StudentRepository;
+        private readonly StudentRepository _studentRepository;
 
-        public StudentService(StudentRepository StudentRepository)
+        public StudentService(StudentRepository studentRepository)
         {
-            _StudentRepository = StudentRepository;
+            _studentRepository = studentRepository;
         }
 
 
         public StudentEntity CreateStudent(string firstName, string lastName, DateTime birthDate, int grade)
         {
-            var StudentEntity = _StudentRepository.Get(x => x.StudentName == StudentName);
+            var studentEntity = _studentRepository.Get(x => x.FirstName == firstName && x.LastName == lastName && x.BirthDate == birthDate);
 
-            StudentEntity ??= _StudentRepository.Create(new StudentEntity { StudentName = StudentName });
+            studentEntity ??= _studentRepository.Create(new StudentEntity { FirstName = firstName, LastName = lastName, BirthDate = birthDate });
 
-            return StudentEntity;
+            return studentEntity;
         }
 
-        public StudentEntity GetStudent(string StudentName)
+        public StudentEntity GetStudent(string firstName, string lastName, DateTime birthDate, int grade)
         {
-            var StudentEntity = _StudentRepository.Get(x => x.StudentName == StudentName);
-            return StudentEntity;
+            var studentEntity = _studentRepository.Get(x => x.FirstName == firstName && x.LastName == lastName && x.BirthDate == birthDate);
+            return studentEntity;
 
         }
 
         public StudentEntity GetStudentById(int StudentId)
         {
-            var StudentEntity = _StudentRepository.Get(x => x.StudentId == StudentId);
+            var StudentEntity = _studentRepository.Get(x => x.StudentId == StudentId);
             return StudentEntity;
         }
 
         public IEnumerable<StudentEntity> GetStudents()
         {
-            var Students = _StudentRepository.GetAll();
-            return Students;
+            var students = _studentRepository.GetAll();
+            return students;
 
         }
 
-        public StudentEntity UpdateStudent(StudentEntity StudentEntity)
+        public StudentEntity UpdateStudent(StudentEntity studentEntity)
         {
-            var updatedStudentEntity = _StudentRepository.Update(x => x.StudentId == StudentEntity.StudentId, StudentEntity);
+            var updatedStudentEntity = _studentRepository.Update(x => x.StudentId == studentEntity.StudentId, studentEntity);
             return updatedStudentEntity;
 
         }
 
         public void DeleteStudent(int StudentId)
         {
-            _StudentRepository.Delete(x => x.StudentId == StudentId);
+            _studentRepository.Delete(x => x.StudentId == StudentId);
 
         }
 
