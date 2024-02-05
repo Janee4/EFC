@@ -34,9 +34,9 @@ namespace StudentEnrollment.Services
 
         }
 
-        public TeacherEntity GetTeacherById(int id)
+        public TeacherEntity GetTeacherById(int TeacherId)
         {
-            var teacherEntity = _teacherRepository.Get(x => x.TeacherId == id);
+            var teacherEntity = _teacherRepository.Get(x => x.TeacherId == TeacherId);
             return teacherEntity;
         }
 

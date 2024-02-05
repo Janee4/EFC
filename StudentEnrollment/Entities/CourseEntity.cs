@@ -8,7 +8,7 @@ namespace StudentEnrollment.Entities
 
         //Primärnyckel
         [Key]
-        public int CourseID { get; set; }
+        public int CourseId { get; set; }
 
         //övriga egenskaper
         [Column(TypeName = "nvarchar(50)")]
