@@ -18,7 +18,7 @@ namespace StudentEnrollment.Repositories
         }
 
 
-        public TEntity Create(TEntity entity) 
+        public virtual TEntity Create(TEntity entity) 
         { 
             _context.Set<TEntity>() .Add(entity);
             _context.SaveChanges();
@@ -26,20 +26,20 @@ namespace StudentEnrollment.Repositories
       
         }
 
-        public IEnumerable<TEntity> GetAll() 
+        public virtual IEnumerable<TEntity> GetAll() 
         {
             return _context.Set<TEntity>().ToList();
-        
+
         }
 
-        public TEntity Get(Expression<Func<TEntity, bool>> expression) 
-        { 
+        public virtual TEntity Get(Expression<Func<TEntity, bool>> expression) 
+        {
             var entity = _context.Set<TEntity>().FirstOrDefault(expression);
             return entity!;
-        
+
         }
 
-        public TEntity Update(Expression<Func<TEntity, bool>> expression, TEntity entity) 
+        public virtual TEntity Update(Expression<Func<TEntity, bool>> expression, TEntity entity) 
         {
             var entityToUpdate = _context.Set<TEntity>().FirstOrDefault(expression);
             _context.Entry(entityToUpdate).CurrentValues.SetValues(entity);
@@ -49,7 +49,7 @@ namespace StudentEnrollment.Repositories
         
         }
 
-        public void Delete(Expression<Func<TEntity, bool>> expression)
+        public virtual void Delete(Expression<Func<TEntity, bool>> expression)
         {
             var entity = _context.Set<TEntity>().FirstOrDefault(expression);
             _context.Remove(entity!);

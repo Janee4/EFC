@@ -35,6 +35,7 @@ namespace StudentEnrollment.Services
             var courseEntity = _courseService.GetCourseById(courseId);
 
 
+            //Get ersätter "read" i CRUD
             var enrollmentEntity = _enrollmentRepository.Get(x => x.EnrollmentDate == enrollmentDate);
 
             enrollmentEntity = new EnrollmentEntity
