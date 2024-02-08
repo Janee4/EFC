@@ -1,5 +1,4 @@
-﻿using System;
-using StudentEnrollment.Services;
+﻿using StudentEnrollment.Services;
 
 namespace StudentEnrollment;
 
@@ -37,9 +36,6 @@ internal class ConsoleUI
             Console.Clear();
             Console.WriteLine("Student was created.");
             Console.ReadKey();
-
-
-
 
         }
     }

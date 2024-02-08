@@ -17,7 +17,7 @@ namespace StudentEnrollment.Entities
         [Column(TypeName = "nvarchar(50)")]
         public string LastName { get; set; }
 
-        [Column(TypeName = "varchar(8)")]
+        [Column(TypeName = "date")]
         public DateTime BirthDate { get; set; }
 
         [Column(TypeName = "varchar(2)")]

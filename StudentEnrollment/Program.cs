@@ -7,7 +7,7 @@ using StudentEnrollment.Contexts;
 using StudentEnrollment.Repositories;
 using StudentEnrollment.Services;
 
-var builder = Host.CreateDefaultBuilder().ConfigureServices(services=>
+var builder = Host.CreateDefaultBuilder().ConfigureServices(services =>
 
 {
     //Registera datacontext inuti dependency injection så att vi kan använda denna i hela vår applikation utan att behöva specifiera upp context delen i olika filer repeterande gånger
@@ -19,7 +19,7 @@ var builder = Host.CreateDefaultBuilder().ConfigureServices(services=>
     services.AddScoped<AssignmentRepository>();
     services.AddScoped<CourseRepository>();
     services.AddScoped<EnrollmentRepository>();
-    
+
     services.AddScoped<StudentService>();
     services.AddScoped<TeacherService>();
     services.AddScoped<AssignmentService>();

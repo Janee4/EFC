@@ -13,5 +13,5 @@ public class DataContext(DbContextOptions<DataContext> options) : DbContext(opti
     public virtual DbSet<StudentEntity> Students { get; set; }
 
 }
-    
+
 

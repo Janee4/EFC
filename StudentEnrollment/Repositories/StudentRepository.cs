@@ -24,7 +24,7 @@ namespace StudentEnrollment.Repositories
 
         public override IEnumerable<StudentEntity> GetAll()
         {
-            return _context.Students       
+            return _context.Students
                 .ToList();
         }
     }
